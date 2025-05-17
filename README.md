@@ -41,9 +41,8 @@ A simple Book Management API built with **Node.js**, **Express**, and **TypeScri
 │   ├── middlewares
 │   ├── data
 │   ├── utils
+│   ├── tests
 │   └── app.ts
-├── tests
-│   └── book.test.ts
 ├── dist
 ├── .env
 ├── tsconfig.json
@@ -75,7 +74,7 @@ A simple Book Management API built with **Node.js**, **Express**, and **TypeScri
 npm test
 ```
 
-* Located in `tests/book.test.ts`
+* Located in `src/tests/book.test.ts`
 * Jest is used for unit testing
 * Includes tests for `POST /api/books`
 
