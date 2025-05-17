@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { books, Book } from '../models/book';
 import { v4 as uuidv4 } from 'uuid';
+import { parseCSV } from '../utils/csvParser';
 
 export const getAllBooks = (req: Request, res: Response) => {
     res.status(200).json({
@@ -103,5 +104,28 @@ export const deleteBook = (req: Request, res: Response) => {
             books
         });
     }
-
 }
+
+
+export const importBooks = async (req: Request, res: Response): Promise<void> => {
+  try {
+    console.log('Received file:', req.file);
+    const file = req.file;
+
+    if (!file) {
+      res.status(400).json({ message: 'CSV file is required' });
+      return;
+    }
+
+    const { addedBooks, errors } = await parseCSV(file.path);
+    books.push(...addedBooks);
+
+    res.json({
+      added: addedBooks.length,
+      errors,
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
