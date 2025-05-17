@@ -70,13 +70,21 @@ A simple Book Management API built with **Node.js**, **Express**, and **TypeScri
 
 ## 🧪 Testing
 
+Unit tests are written using **Jest** and located in the `src/tests` directory.
+
+### Sample Test: `POST /api/books`
+
+Tests the book creation endpoint with valid and invalid data.
+
 ```bash
 npm test
 ```
 
-* Located in `src/tests/book.test.ts`
-* Jest is used for unit testing
-* Includes tests for `POST /api/books`
+To run tests in watch mode:
+
+```bash
+npm run test:watch
+```
 
 ---
 
@@ -144,7 +152,7 @@ Use Postman to upload with `form-data`:
 
 A Postman collection is available to test all endpoints:
 
-**[📩 Download Collection](https://www.postman.com/collections/your-link-here)**
+**[📩 View Postman Collection](https://book-management-9334.postman.co/workspace/book-management-Workspace~84b7e12b-c20d-4c88-88d9-244559f8cc2d/collection/37182674-93c98434-b858-443e-a558-9bd5bfe11da4?action=share&creator=37182674&active-environment=37182674-60d23f06-a0bf-40fd-a95b-b4db75b740f2)**
 
 ---
 
